@@ -19,15 +19,14 @@ const lemonade = {
     }
 }
 
-function copyLemonade(lemonade) {
-    let newLemonade
-    for (let key in lemonade) {
-        newLemonade = {
-            ...newLemonade,
-            [key]: lemonade[key]
-        }
+function updateLemonade(lemonade, lemonJuice, water, sugar, iceCubes) {
+    return {
+        ...lemonade,
+        lemonJuice,
+        water,
+        sugar,
+        iceCubes
     }
-    return newLemonade
 }
 
-console.log(copyLemonade(lemonade))
+console.log(updateLemonade(lemonade, 5, 2.5, 3, 7))

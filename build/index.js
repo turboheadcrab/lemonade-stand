@@ -20,14 +20,13 @@ var lemonade = {
   }
 };
 
-function copyLemonade(lemonade) {
-  var newLemonade;
-
-  for (var key in lemonade) {
-    newLemonade = _objectSpread(_objectSpread({}, newLemonade), {}, _defineProperty({}, key, lemonade[key]));
-  }
-
-  return newLemonade;
+function updateLemonade(lemonade, lemonJuice, water, sugar, iceCubes) {
+  return _objectSpread(_objectSpread({}, lemonade), {}, {
+    lemonJuice: lemonJuice,
+    water: water,
+    sugar: sugar,
+    iceCubes: iceCubes
+  });
 }
 
-console.log(copyLemonade(lemonade));
+console.log(updateLemonade(lemonade, 5, 2.5, 3, 7));
