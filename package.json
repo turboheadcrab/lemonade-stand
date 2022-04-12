@@ -1,0 +1,18 @@
+{
+  "name": "lemonade-stand",
+  "version": "1.0.0",
+  "description": "Cooksys lemonade stand application",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "babel ./src -d ./build",
+    "prestart": "npm run build",
+    "start": "node ."
+  },
+  "author": "Vladimir Apraksin",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.9",
+    "@babel/preset-env": "^7.16.11"
+  }
+}
