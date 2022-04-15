@@ -14,5 +14,8 @@
     "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.9",
     "@babel/preset-env": "^7.16.11"
+  },
+  "dependencies": {
+    "vorpal": "^1.12.0"
   }
 }

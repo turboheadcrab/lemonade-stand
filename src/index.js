@@ -1,46 +1,54 @@
-const lemonade = {
-    lemonJuice: 3,
-    water: 3,
-    sugar: 1.5,
-    iceCubes: 5,
-    [console.log('Hello World')]: 'Hi',
-    calculatePrice() {
-        return (
-            this.lemonJuice * 0.3 +
-            this.water * .01 +
-            this.sugar * .25 +
-            this.iceCubes * .05 +
-            .75
-        )
+/*
+const order = {
+    total: 5.00,
+    lemonades: [
+        {
+            lemonJuice: 4,
+            water: 2,
+            sugar: 3,
+            iceCubes: 7,
+            price: 5
+        }, {
+            lemonJuice: 2,
+            water: 2,
+            sugar: 1,
+            iceCubes: 7,
+            price: 3
+        }, {
+            lemonJuice: 3,
+            water: 2,
+            sugar: .5,
+            iceCubes: 7,
+            price: 4.38
+        }, {
+            lemonJuice: 3,
+            water: 2.14,
+            sugar: 1.25,
+            iceCubes: 7,
+            price: 2.49
+        }
+    ],
+    lemonadeStand: {
+        name: 'Cooksys LemonadeStand'
+    },
+    customer: {
+        name: 'Will',
+        phoneNumber: '0000000000'
     }
-}
+}*/
+import Vorpal from 'vorpal'
 
-function updateLemonade(lemonade, lemonJuice, water, sugar, iceCubes) {
-    return {
-        lemonJuice,
-        water,
-        sugar,
-        iceCubes,
-        ...lemonade
-    }
-}
+const vorpal = Vorpal()
 
-lemonade.water = 8
+vorpal
+    .command('hello [number]', 'Prints Hello to the console')
+    .option('-f --file', 'Provide a file name')
+    .action(function (args, callback) {
+        if (args.options.file) {
+            this.log('I see you want to make a file?')
+        }
+        this.log('Hello ${args.name}, should I call you at ${args.number}')
+        callback()
+    })
 
-console.log({ ...lemonade, water: 5 })
-console.log(lemonade)
-
-const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, [1, 2, 3]]
-const numbersCopy = [...numbers]
-numbersCopy[10] = [...numbers[10]]
-
-numbersCopy[10][0] = 5
-console.log(numbers)
-console.log(numbersCopy)
-
-let { water: a, lemonJuice, sugar, iceCubes } = lemonade
-
-console.log(a)
-console.log(lemonJuice)
-console.log(sugar)
-console.log(iceCubes)
+vorpal.show()
