@@ -1,18 +1,20 @@
+import fs from 'fs'
+
 export const calculateLemonadePrice = lemonade => {
-    let result = .75
+    let result = 0.75
     for (let key in lemonade) {
         switch (key) {
             case 'lemonJuice':
-                result += lemonade[key] * .30
+                result += lemonade[key] * 0.3
                 break
             case 'water':
-                result += lemonade[key] * .01
+                result += lemonade[key] * 0.01
                 break
             case 'sugar':
-                result += lemonade[key] * .20
+                result += lemonade[key] * 0.2
                 break
             case 'iceCubes':
-                result += lemonade[key] * .05
+                result += lemonade[key] * 0.05
                 break
             default:
                 break
@@ -27,4 +29,8 @@ export const calculateOrderTotal = ({lemonades}) => {
         result += lemonade.price
     }
     return result
+}
+
+export const writeFileSync = (fileName, order) => {
+    fs.writeFileSync(fileName, JSON.stringify(order))
 }
